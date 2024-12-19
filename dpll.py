@@ -97,7 +97,7 @@ def generate_3sat(n: int, l: int):
 # Example usage
 if __name__ == "__main__":
 
-    num_vars, clauses = read_dimacs("einstein_riddle_real_true.cnf")
+    num_vars, clauses = read_dimacs("einstein_riddle.cnf")
 
     test_formula = [
         [1, -3, 4],
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     ]
 
     print("Improved Heuristic:")
-    result, assignment = dpll(clauses, improved_heuristic)
+    result, assignment = dpll(clauses)
     sorted_dict = {key: assignment[key] for key in sorted(assignment.keys())}
     count = sum(value for value in assignment.values())
     print("Satisfiable:", result, "Assignment:", sorted_dict, "Count:", count)
